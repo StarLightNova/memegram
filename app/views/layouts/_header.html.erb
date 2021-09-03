@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">memegram</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <% if current_user.nil? %>
+        <li class="nav-item active">
+          <%= link_to 'Home', root_url, class: "nav-link", id: "header-home" %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+        // TODO::
+          <%= link_to 'Home', , class: "nav-link", id: "header-login" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Home', root_url, class: "nav-link", id: "header-signup" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
