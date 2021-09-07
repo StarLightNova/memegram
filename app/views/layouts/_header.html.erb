@@ -1,21 +1,24 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="#">memegram</a>
+  <%# <a class="navbar-brand" href="#">memegram</a> %>
+  <%= link_to 'memegram', root_url, class: "navbar-brand", id: "header-home-brand" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
-      <% if current_user.nil? %>
+      <% if user_signed_in? %>
         <li class="nav-item active">
           <%= link_to 'Home', root_url, class: "nav-link", id: "header-home" %>
         </li>
+        <li class="nav-item active">
+          <%= link_to 'Exit', destroy_user_session_path, method: :delete, class: "nav-link", id: "header-home" %>
+        </li>
       <% else %>
         <li class="nav-item">
-        // TODO::
-          <%= link_to 'Home', , class: "nav-link", id: "header-login" %>
+          <%= link_to 'Log In', new_user_session_path, class: "nav-link", id: "header-login" %>
         </li>
         <li class="nav-item">
-          <%= link_to 'Home', root_url, class: "nav-link", id: "header-signup" %>
+          <%= link_to 'Sign up', new_user_registration_path, class: "nav-link", id: "header-signup" %>
         </li>
       <% end %>
     </ul>
