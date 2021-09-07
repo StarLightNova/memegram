@@ -1,7 +1,9 @@
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  // TODO:: validation neede here
+  <% if flash[:alert] %>
+    <div class="alert alert-danger"><%= flash[:alert] %></div>
+  <% end %>
 
   <div class="form-group">
     <%= f.label :email %><br />
