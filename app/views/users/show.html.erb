@@ -1,1 +1,22 @@
-<h1>Hello <%=@user.first_name%></h1>
+<div class="container mt-1 pb-1 pt-1 shadow-sm">
+  <div class="col-md-12 shadow-sm">
+    <label for="users-show-first-name">first name</label>
+    <p id="users-show-first-name"><%=@user.first_name%></p>
+  </div>
+  <div class="col-md-12 shadow-sm">
+    <label for="users-show-last-name">last name</label>
+    <p id="users-show-last-name"><%=@user.last_name%></p>
+  </div>
+  <div class="col-md-12 shadow-sm">
+    <label for="users-show-username">username</label>
+    <p id="users-show-username"><%=@user.username%></p>
+  </div>
+  <div class="col-md-12 shadow-sm">
+    <label for="users-show-email">email</label>
+    <p id="users-show-email"><%=@user.email%></p>
+  </div>
+  <div class="col-md-12 d-flex justify-content-center">
+    <%= link_to 'Exit🚪', destroy_user_session_path, method: :delete, class: "btn btn-danger mr-1"%>
+    <%= link_to 'Edit✏️', edit_user_registration_path, class: "btn btn-success ml-1"%>
+  </div>
+</div>
