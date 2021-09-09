@@ -1,19 +1,11 @@
-<div class="container mt-1 pb-1 pt-1 shadow-sm">
-  <div class="col-md-12 shadow-sm">
-    <label for="users-show-first-name">first name</label>
-    <p id="users-show-first-name"><%=@user.first_name%></p>
-  </div>
-  <div class="col-md-12 shadow-sm">
-    <label for="users-show-last-name">last name</label>
-    <p id="users-show-last-name"><%=@user.last_name%></p>
-  </div>
-  <div class="col-md-12 shadow-sm">
-    <label for="users-show-username">username</label>
-    <p id="users-show-username"><%=@user.username%></p>
-  </div>
-  <div class="col-md-12 shadow-sm">
-    <label for="users-show-email">email</label>
-    <p id="users-show-email"><%=@user.email%></p>
+<div class="container mt-1 pb-1 pt-1">
+  <div class="col-md-6 shadow-lg d-flex justify-content-center align-items-center border flex-column">
+    <div class="col-md-6  border d-flex justify-content-center">
+      <img class="img-fluid" src="https://i.kym-cdn.com/photos/images/original/002/000/962/309.gif" width="150" height="150">
+    </div>
+    <div class="col-md-6 text-center">
+      <h3><%=@user.username%></h3>
+    </div>
   </div>
   <div class="col-md-12 d-flex justify-content-center">
     <%= link_to 'Exit🚪', destroy_user_session_path, method: :delete, class: "btn btn-danger mr-1"%>
