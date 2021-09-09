@@ -4,11 +4,12 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
   def change
     create_table :users do |t|
       ## Database authenticatable
-      t.string :first_name,         null: false, default: ""
-      t.string :last_name,          null: false, default: ""
-      t.string :username,           null: false, default: ""
-      t.string :email,              null: false, default: ""
-      t.string :encrypted_password, null: false, default: ""
+      t.string  :first_name,         null: false, default: ""
+      t.string  :last_name,          null: false, default: ""
+      t.string  :username,           null: false, default: ""
+      t.string  :email,              null: false, default: ""
+      t.integer :role_id,            null: false, default: 1
+      t.string  :encrypted_password, null: false, default: ""
 
       ## Recoverable
       t.string   :reset_password_token
@@ -42,16 +43,19 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
     add_index :users, :email,                unique: true
     add_index :users, :username,             unique: true
     add_index :users, :reset_password_token, unique: true
+    add_foreign_key :users, :roles
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
     
     # Test account initializer 
     User.create! do |u|
-      u.first_name  = 'test_first_name'
-      u.last_name   = 'test_last_name'
-      u.username    = 'test_username'
-      u.email       = 'test_email@test.com'
-      u.password    = '123456'
+      u.first_name            = 'test_first_name'
+      u.role_id               = 1
+      u.last_name             = 'test_last_name'
+      u.username              = 'test_username'
+      u.email                 = 'test_email@test.com'
+      u.password              = '123456'
+      u.password_confirmation = '123456'
     end
   end
 end
