@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params.require(:post).permit(:body, :user_id))
+    @post = Post.new(params.require(:post).permit(:title, :body, :user_id))
     if @post.save
       redirect_to @post
     else

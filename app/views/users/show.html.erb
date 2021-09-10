@@ -1,14 +1,58 @@
-<div class="container mt-1 pb-1 pt-1">
-  <div class="col-md-6 shadow-lg d-flex justify-content-center align-items-center border flex-column">
-    <div class="col-md-6  border d-flex justify-content-center">
-      <img class="img-fluid" src="https://i.kym-cdn.com/photos/images/original/002/000/962/309.gif" width="150" height="150">
+<div class="col-md-12">
+  <div class="col-md-12 mt-2 d-flex justify-content-center align-items-center flex-column">
+  
+    <%#The Main avatar and nickname %>
+    <div class="col-md-12 pt-2 pb-2 shadow-lg d-flex justify-content-center align-items-center border flex-column">
+      <div class="col-md-6  border d-flex justify-content-center">
+        <img class="img-fluid" src="https://i.kym-cdn.com/photos/images/original/002/000/962/309.gif" width="150" height="150">
+      </div>
+      <div class="col-md-6 text-center">
+        <div class="text-wrap text-break" style="font-size: 21px;"><%=@user.username%></div>
+      </div>
     </div>
-    <div class="col-md-6 text-center">
-      <h3><%=@user.username%></h3>
+
+    <%# Full personal information %>
+    <div class="col-md-12 mt-3 pt-2 pb-2 shadow-lg d-flex justify-content-center align-items-center border flex-column ">
+      <div class="col-md-12">
+        <div class="badge badge-primary text-wrap text-break">First name: </div>
+        <div class="text-break"><%=@user.first_name%></div>
+      </div>
+      <div class="col-md-12">
+        <div class="badge badge-primary text-wrap text-break">Last name: </div>
+        <div class="text-break"><%=@user.last_name%></div>
+      </div>
+      <div class="col-md-12">
+        <div class="badge badge-primary text-wrap text-break">Email: </div>
+        <div class="text-break"><%=@user.email%></div>
+      </div>  
+      <div class="col-md-12 d-flex justify-content-center">
+        <%= link_to 'Edit✏️', edit_user_registration_path, class: "btn btn-success mr-1"%>
+        <%= link_to 'Exit🚪', destroy_user_session_path, method: :delete, class: "btn btn-danger ml-1"%>
+      </div>
     </div>
-  </div>
-  <div class="col-md-12 d-flex justify-content-center">
-    <%= link_to 'Exit🚪', destroy_user_session_path, method: :delete, class: "btn btn-danger mr-1"%>
-    <%= link_to 'Edit✏️', edit_user_registration_path, class: "btn btn-success ml-1"%>
+
+    <%# Full posts information %>
+    <div class="col-md-12 mt-3 pt-2 pb-2 shadow-lg d-flex justify-content-center align-items-center border flex-column" id="users-posts">
+      <% if @user.posts.any? %>
+        <div class="row">
+          <% @user.posts.each do |post| %>
+            <div class="col-md-12 m-2">
+              <div class="col-md-12 d-flex border rounded align-items-center flex-column">
+                <div class="col-md-12">
+                  <h3><%= post.title.nil? == true ? "*no title*" : post.title %></h3>
+                </div>
+                <div class="col-md-12">
+                  <p><%= post.body %> </p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="text-danger"> You don't have any memes 🤪</div>
+      <% end %>
+    </div>
   </div>
 </div>
+
+  
