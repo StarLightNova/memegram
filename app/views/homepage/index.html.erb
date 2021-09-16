@@ -1,3 +1,28 @@
-<div class="jumbotron">
-  <h1>Hello world<h1>
+<% if @post.nil? || @post.length == 0 %>
+<div class="jumbotron d-flex justify-content-center align-items-center flex-column">
+  <div class="text-break text-center"><h1>No memes today :<</h1><div>
+  <img class="img-fluid" src="https://lh3.googleusercontent.com/proxy/f6qWn4-IzEG45ENuA-gl6nP7L-iuVzh-oxDqdiN4NWHClo-dvDnZn-UcmcuVcPfeEIFzsRiSLekswiVey4WiNeaGyw" alt="When no memes">
 </div>
+<% else %>
+  <div class="col-md-12 mt-3 pt-2 pb-2 d-flex justify-content-center align-items-center flex-column" id="users-posts">
+    <% @post.each do |post| %>
+      <div class="col-md-12 m-2">
+        <div class="col-md-12 d-flex border rounded align-items-center flex-column p-3 shadow">
+          <div class="col-md-12">
+            <div class="text-break"><h3><%= post.title.nil? == true ? "" : post.title %></h3></div>
+          </div>
+          <div class="col-md-12">
+            <div class="text-break text-right"><%= link_to post.user.username, user_path(post.user) %> </div>
+          </div>
+          <div class="col-md-12">
+            <div class="text-break"><p><%= post.body %> </p></div>
+          </div>
+          <div class="col-md-12 d-flex justify-content-between align-items-center">
+            <div class="text-break text-left"><p style="font-size: 9px;"><%=post.created_at%></p></div>
+            <div class="text-break text-right"><%= link_to 'More', post_path(post) %></div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

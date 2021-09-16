@@ -11,10 +11,13 @@
           <%= link_to 'Home', root_url, class: "nav-link", id: "header-home" %>
         </li>
         <li class="nav-item active">
+          <%= link_to 'Create meme', new_post_path, class: "nav-link", id: "header-create-meme" %>
+        </li>
+        <li class="nav-item active">
           <%= link_to 'My account', user_path(current_user), class: "nav-link", id: "header-home" %>
         </li>
         <li class="nav-item active">
-          <%= link_to 'Exit', destroy_user_session_path, method: :delete, class: "nav-link", id: "header-home" %>
+          <%= link_to 'Exit', destroy_user_session_path, method: :delete, class: "nav-link", id: "header-exit" %>
         </li>
       <% else %>
         <li class="nav-item">
