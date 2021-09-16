@@ -1,0 +1,25 @@
+<div class="container"> 
+  <h1>Edit meme</h1>
+  <%= form_for @resource do |form| %>
+    <%= render "devise/shared/error_messages_general", resource: @resource %>
+    <div class="form-group">
+      <%= form.label :title %>
+      <%= form.text_field :title, class: "form-control" %>
+      <small id="post-title-help" class="form-text text-muted">You may leave it empty.</small>
+    </div>
+    <div class="form-group">
+      <%= form.label :body %>
+      <%= form.text_area :body, class: "form-control" %>
+    </div>
+    <%= form.hidden_field :user_id, value: "#{@resource.user_id}"%>
+    <%= link_to 'Delete', post_path(@resource, :user_id => @resource.user_id), method: :DELETE, class: "btn btn-danger", :data => {:confirm => "Confident enough?"} %>
+    <%= form.submit 'Save', method: :PUT, class: "btn btn-primary"%>
+    <%= link_to "Back", :back %>
+  <% end %>
+</div>
+
+<script>
+  function foo(){
+    console.log('hi')
+  }
+</script>
