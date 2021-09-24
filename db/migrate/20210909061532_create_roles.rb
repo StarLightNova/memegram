@@ -5,4 +5,9 @@ class CreateRoles < ActiveRecord::Migration[6.1]
       t.timestamps
     end
   end
+
+  # Default roles at first account initializer 
+  Role.create!(:role_name => "user")
+  Role.create!(:role_name => "moderator")
+  Role.create!(:role_name => "admin")
 end

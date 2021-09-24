@@ -1,7 +1,7 @@
 <% if @post.nil? || @post.length == 0 %>
 <div class="jumbotron d-flex justify-content-center align-items-center flex-column">
   <div class="text-break text-center"><h1>No memes today :<</h1><div>
-  <img class="img-fluid" src="https://lh3.googleusercontent.com/proxy/f6qWn4-IzEG45ENuA-gl6nP7L-iuVzh-oxDqdiN4NWHClo-dvDnZn-UcmcuVcPfeEIFzsRiSLekswiVey4WiNeaGyw" alt="When no memes">
+  <img class="img-fluid" src="<%=asset_path('not_found/anime_no_memes.gif')%>" alt="When no memes">
 </div>
 <% else %>
   <div class="col-md-12 mt-3 pt-2 pb-2 d-flex justify-content-center align-items-center flex-column" id="users-posts">
