@@ -10,6 +10,7 @@ class PostsController < ApplicationController
 
   def new
     @resource = Post.new
+    @categories = Category.all
   end
 
   def create
