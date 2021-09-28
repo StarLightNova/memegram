@@ -15,6 +15,7 @@ class PostsController < ApplicationController
 
   def create
     @resource = Post.new(post_params_required)
+    @categories = Category.all
     if @resource.save
       redirect_to @resource
     else
@@ -41,6 +42,6 @@ class PostsController < ApplicationController
 
   private
     def post_params_required
-      params.require(:post).permit(:title, :body, :user_id)
+      params.require(:post).permit(:title, :body, :category_id, :user_id)
     end
 end 

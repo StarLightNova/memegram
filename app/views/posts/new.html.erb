@@ -12,11 +12,7 @@
       <%= form.text_area :body, class: "form-control w-100", rows: 15 %>
     </div>
     <div class="form-group">
-      <select class="form-control">
-        <% @categories.each do |cats| %>
-          <option <%= "selected" if cats.id == @categories.first.id %> value="<%=cats.id%>"><%=cats.category_name%></option>
-        <% end %>
-      </select>
+      <%= form.collection_select :category_id, @categories, :id, :category_name, {}, {class: "form-control"} %>
         <%= link_to "Didn't find?", new_category_url, class: "btn btn-success btn-sm mt-1" %>
     </div>
     <%= form.hidden_field :user_id, value: "#{current_user.id}"%>
