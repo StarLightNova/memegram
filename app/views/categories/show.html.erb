@@ -13,19 +13,7 @@
       <% else %>
         <div class="row">
           <%@category_posts.each do |post|%>
-              <div class="col-md-12 m-2">
-                  <div class="col-md-12 d-flex border rounded align-items-center flex-column p-3">
-                    <div class="col-md-12">
-                      <div class="text-break"><h3><%= post.title.nil? == true ? "" : post.title %></h3></div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="text-break"><p><%= post.body %> </p></div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="text-break text-left"><p style="font-size: 9px;"><%=post.created_at%></p></div>
-                    </div>
-                  </div>
-                </div>
+              <%= render './partial_layouts/post', resource: post%>
           <%end%>
         </div>  
       <% end %>

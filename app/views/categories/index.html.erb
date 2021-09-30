@@ -1,0 +1,10 @@
+<% if @categories.nil? || @categories.length == 0 %>
+<div class="jumbotron d-flex justify-content-center align-items-center flex-column">
+  <div class="text-break text-center"><h1>Categories not found :<</h1><div>
+  <img class="img-fluid" src="<%=asset_path('not_found/anime_no_memes.gif')%>" alt="When no categories">
+</div>
+<% else %>
+  <% @categories.each do |category| %>
+    <%= render './partial_layouts/category', resource: category %>
+  <% end %>
+<% end %>

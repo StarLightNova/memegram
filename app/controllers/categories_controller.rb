@@ -3,6 +3,10 @@ class CategoriesController < ApplicationController
     @resource = Category.new
   end
 
+  def index
+    @categories = Category.all
+  end
+
   def show
     @resource = Category.find(params[:id])
     @category_posts = @resource.posts
