@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class DeviseCreateUsers < ActiveRecord::Migration[6.1]
+  require 'faker'
   def change
     create_table :users do |t|
       ## Database authenticatable
@@ -48,14 +49,16 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
     # add_index :users, :unlock_token,         unique: true
     
     # Test account initializer 
-    User.create! do |u|
-      u.first_name            = 'test_first_name'
-      u.role_id               = 1
-      u.last_name             = 'test_last_name'
-      u.username              = 'test_username'
-      u.email                 = 'test_email@test.com'
-      u.password              = '123456'
-      u.password_confirmation = '123456'
+    for i in 0..10
+      User.create! do |u|
+        u.first_name            = Faker::Name.first_name
+        u.role_id               = 1
+        u.last_name             = Faker::Name.last_name
+        u.username              = Faker::FunnyName.unique.name
+        u.email                 = Faker::Internet.unique.email
+        u.password              = '123456'
+        u.password_confirmation = '123456'
+      end
     end
   end
 end
