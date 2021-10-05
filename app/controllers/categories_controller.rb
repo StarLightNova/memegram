@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
   end
 
   def index
-    @categoriesp = Category.all
+    @categories = Category.all
   end
 
   def show
