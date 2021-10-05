@@ -1,0 +1,24 @@
+<div class="col-md-12 mt-3 pt-2 pb-2 d-flex justify-content-center align-items-center flex-column">
+  <div class="col-md-12 m-2">
+    <div class="col-md-12 d-flex border rounded align-items-center flex-column p-3 shadow">
+      <div class="col-md-12">
+        <div class="text-break"><h3><%= resource.title.nil? == true ? "" : resource.title %></h3></div>
+      </div>
+      <div class="col-md-12">
+        <div class="text-break text-right"><%= link_to resource.user.username, user_path(resource.user) %> </div>
+      </div>
+      <div class="col-md-12">
+        <div class="text-break"><p><%= resource.body %> </p></div>
+        <div class="col-md-12 p-0">
+          <%= link_to resource.category.category_name, category_path(resource.category), class: "btn btn-outline-primary" %>
+        </div>
+      </div>
+      <div class="col-md-12 d-flex justify-content-between align-items-center">
+        <div class="text-break text-left"><p style="font-size: 9px;"><%=resource.created_at%></p></div>
+        <% if !request.url.include?(post_path(resource))%>
+          <div class="text-break text-right"><%= link_to 'More', post_path(resource) %></div>
+        <% end%>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="container"> 
+  <h1>Category for memes</h1>
+  <%= form_for @resource do |form| %>
+    <%= render "devise/shared/error_messages", resource: @resource %>
+    <div class="form-group">
+      <%= form.label :category_name %>
+      <%= form.text_field :category_name, class: "form-control", required: true %>
+    </div>
+    <div class="form-group">
+      <%= form.label :category_description %>
+      <%= form.text_area :category_description, class: "form-control w-100", rows: 7 %>
+      <small id="resource-title-help" class="form-text text-muted">You may leave it empty.</small>
+    </div>
+    <%= form.submit 'Add a new category to our memehood!', class: "btn btn-primary"%>
+    <%= link_to "Back", :back%>
+  <% end %>
+</div>
