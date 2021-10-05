@@ -60,3 +60,6 @@ gem 'dotenv'
 
 # gem for the user authentications
 gem 'devise'
+
+# Gem that allows me to create fake data
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
