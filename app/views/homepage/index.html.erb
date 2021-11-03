@@ -5,6 +5,9 @@
 </div>
 <% else %>
   <% @post.each do |post| %>
-    <%= render './partial_layouts/post', resource: post %>
-  <% end %>
+    <%= render './partial_layouts/post', resource: post %>   
+  <% end %>  
+  <div class='d-flex align-items-center justify-content-center'>
+    <%= will_paginate @post, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+  </div>
 <% end %>
