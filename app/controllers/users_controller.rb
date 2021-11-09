@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
 
-
   # TODO:: users/1 = A, users/3 = B, when you logged to A you can get parameters of user B. Fix bug.
   def show
     can_user_go

@@ -4,7 +4,10 @@
     <%#The Main avatar and nickname %>
     <div class="col-md-12 pt-2 pb-2 shadow-lg d-flex justify-content-center align-items-center border flex-column">
       <div class="col-md-6  border d-flex justify-content-center">
-        <img class="img-fluid" src="https://i.kym-cdn.com/photos/images/original/002/000/962/309.gif" width="150" height="150">
+        <img class="img-fluid" src="<%= 
+          @user.avatar.attached? ? url_for(@user.avatar) :
+          'https://i.kym-cdn.com/photos/images/original/002/000/962/309.gif'
+        %>" width="150" height="150">
       </div>
       <div class="col-md-6 text-center">
         <div class="text-wrap text-break" style="font-size: 21px;"><%=@user.username%></div>
